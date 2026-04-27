@@ -7,8 +7,8 @@
 
 Feature: Test case to verify a logged out user can navigate to sign in in Target.com
 
-  Scenario: User can Sign in
-  Given Open target.com
+Scenario: User can Sign in
+  Given Open Target main page
   When Click Account button
   Then Verify sign in button opened
     # Enter steps here

@@ -5,9 +5,10 @@
 #Verify “Your cart is empty” message is shown
 
 Feature: Test case to click on the cart icon and verify 'Your cart is empty' in Target.com
-  # Enter feature description here
 
   Scenario: user can confirm 'Your cart is empty' message
     Given Open Target main page
     When Click on Cart icon
     Then Verify 'Your cart is empty' message is shown
+
+
