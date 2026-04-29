@@ -1,11 +1,16 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 @given("Open Target Circle page")
 def open_target_circle_page(context):
     context.driver.get("https://www.target.com/circle")
-    sleep(3)
+    context.wait.until(
+        EC.visibility_of_element_located((By.CSS_SELECTOR, "div[data-test='@web/SlingshotComponents/Storyblocks'] a")),
+        message=f'Target circle page is not opened'
+    )
 
 
 @then ("Verify 2 storycards are shown")

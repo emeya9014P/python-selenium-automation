@@ -1,10 +1,5 @@
 # Created by emeya at 4/26/2026
 Feature: Target Help page test cases
-  # Enter feature description here
-
-#  Scenario: Verify UI elements on Target Help page
-#    Given Open Target Help page
-#    Then Verify Help text is shown
 
   Scenario Outline: Verify UI elements on Target Help page
     Given Open Target Help page
