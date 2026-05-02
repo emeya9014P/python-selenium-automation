@@ -11,12 +11,12 @@
 
 Feature: Test cases for Product Search on Target
 
-  Scenario: Use can search for a product "tea" on Target
+  Scenario: User can search for a product "tea" on Target
     Given Open Target main page
     When Search for tea
     Then Verify search result for tea shown
 
-  Scenario: Use can search for a product "coffee" on Target
+  Scenario: User can search for a product "coffee" on Target
     Given Open Target main page
     When Search for coffee
     Then Verify search result for coffee shown
@@ -39,3 +39,8 @@ Feature: Test cases for Product Search on Target
     And Click on Add to cart button
     And Click View cart & check out button
     Then Verify the product is in the cart
+
+  Scenario: Verify that user can see a product name and an image
+    Given Open Target main page
+    When Search for Airpods
+    Then Verify that every product has a name and an image

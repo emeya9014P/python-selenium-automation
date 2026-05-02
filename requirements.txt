@@ -1,9 +1,9 @@
-<<<<<<< HEAD
+HEAD
 allure-behave
 behave
 selenium
 webdriver-manager
-=======
+
 behave
 selenium
->>>>>>> master
+ master

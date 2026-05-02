@@ -20,3 +20,4 @@ Feature: Target Help page test cases
     Given Open Target Help page
     Then Verify 8 horizontal cards are linked
 
+

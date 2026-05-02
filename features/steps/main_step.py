@@ -6,9 +6,4 @@ from selenium.webdriver.support import expected_conditions as EC
 
 @given("Open Target main page")
 def open_target_main(context):
-    context.driver.get("https://target.com")
-    context.wait.until(
-        EC.presence_of_element_located((By.ID, 'search')),
-        message=f'Target main page is not opened'
-    )
-# context.wait.until(EC...(By.ID, "ID name"))
+    context.app.main_page.open_main()

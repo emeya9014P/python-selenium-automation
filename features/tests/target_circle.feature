@@ -1,6 +1,6 @@
 # Created by emeya at 4/25/2026
 Feature: Target Circle page tests
 
-  Scenario: User can verify 2 storycards on Target Circle page
+  Scenario: User can verify 2 story_cards on Target Circle page
     Given Open Target Circle page
-    Then Verify 2 storycards are shown
+    Then Verify 2 story_cards are shown
