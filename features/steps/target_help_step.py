@@ -5,8 +5,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-NAV_CARD = (By.CSS_SELECTOR, "div[class*='NavCard_navCardWrapper'] a")
 HORIZONTAL_CARD = (By.CSS_SELECTOR, "div[class*='LinkItem_linkList'][data-test='LinkList']")
+NAV_CARD = (By.CSS_SELECTOR, "div[class*='NavCard_navCardWrapper'] a")
 
 
 @given("Open Target Help page")

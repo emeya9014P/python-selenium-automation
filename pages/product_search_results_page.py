@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 
 from pages.base_page import Page
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class SearchResultsPage(Page):
@@ -13,9 +14,13 @@ class SearchResultsPage(Page):
     SEARCH_RESULT_COUNT_TEXT = (By.CSS_SELECTOR, "span[data-test='text-quill-insert-1']")
     VIEW_CART_AND_CHECK_OUT_BTN = (By.XPATH, "//a[text()='View cart & check out']")
 
-    def verify_search_results(self):
-        actual_result = self.find_element(*self.SEARCH_RESULT_COUNT_TEXT)
-        assert 'tea' in actual_result, f'Expected tea not in "{actual_result}'
+    def verify_search_results(self, product: str):
+        # actual_result = self.find_element(*self.SEARCH_RESULT_COUNT_TEXT)
+        # assert 'tea' in actual_result, f'Expected tea not in "{actual_result}'
+        self.verify_partial_text(product, *self.SEARCH_RESULT_COUNT_TEXT)
+
+    def verify_url_product(self, product):
+        self.wait_until_url_contains(product)
 
     def search_for_product(self, product):
         search_input = self.find_element(*self.SEARCH_FIELD)

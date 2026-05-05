@@ -17,6 +17,11 @@ def verify_search_result_for_product(context, product):
     context.app.product_search_results_page.verify_product_search_result(product)
 
 
+@then("Verify URL has searchTerm={product}")
+def verify_url_product(context, product):
+    context.app.product_search_results_page.verify_url_product(product)
+
+
 @when ("Click on the first product")
 def click_add_to_cart_button(context):
     context.app.product_search_results_page.add_first_product_to_cart()

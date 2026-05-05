@@ -9,10 +9,8 @@ class CartPage(Page):
     EMPTY_CART_MSG = (By.XPATH, "//h1[text()='Your cart is empty']")
 
     def verify_cart_empty(self):
-        actual_result = self.find_element(*self.EMPTY_CART_MSG).text
-        expected_result = "Your cart is empty"
-        assert expected_result == actual_result, f"Expected {expected_result}, but got {actual_result}"
-        print("Test Passed")
+        self.wait.until(*self.EMPTY_CART_MSG)
+        self.verify_text('Your cart is empty', *self.EMPTY_CART_MSG)
 
 
 

@@ -15,6 +15,7 @@ Feature: Test cases for Product Search on Target
     Given Open Target main page
     When Search for tea
     Then Verify search result for tea shown
+    And Verify URL has searchTerm=tea
 
   Scenario: User can search for a product "coffee" on Target
     Given Open Target main page

@@ -10,3 +10,4 @@ EMPTY_CART_MSG = (By.XPATH, "//h1[text()='Your cart is empty']")
 def verify_cart_empty(context):
     context.app.cart_page.verify_cart_empty()
 
+# test

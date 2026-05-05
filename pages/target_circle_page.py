@@ -4,11 +4,14 @@ from time import sleep
 
 class TargetCirclePage(Page):
     STORY_CARDS_BLOCK = (By.CSS_SELECTOR, "div[data-test='@web/SlingshotComponents/Storyblocks'] a")
+    TARGET_CIRCLE_URL = 'https://www.target.com/l/target-circle/-/N-pzno9'
 
     def open_target_circle_page(self):
-        self.open_url('circle')
+        self.open_url('l/target-circle/-/N-pzno9')
+        self.wait_until_url_contains('target-circle')
 
     def verify_story_cards_count(self):
+        self.wait_until_appear(*self.STORY_CARDS_BLOCK)
         story_cards = self.driver.find_elements(*self.STORY_CARDS_BLOCK)
 
         print('story_cards found: ')

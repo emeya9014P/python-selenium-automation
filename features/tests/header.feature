@@ -9,5 +9,16 @@ Feature: Test cases for header
   Scenario: Verify user can Sign in
     Given Open Target main page
     When Click Account button
-    Then Verify signin button opened
+    When From right side navigation menu, click Sign In
+    Then Verify Sign in form opened
+
+#  Scenario: Verify user is logged in
+#    Given Open Target main page
+#    When Click Account button
+#    When From right side navigation menu, click Sign In
+#    When Enter your password and Sign in with password button
+#    Then Verify user is logged in
+
+
+
 

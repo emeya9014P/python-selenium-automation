@@ -5,8 +5,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-# COLOR_OPTIONS = (By.CSS_SELECTOR, "[data-test='@web/VariationComponent'] img")
-# SELECTED_COLOR = (By.CSS_SELECTOR, "[data-test='@web/VariationComponent'] div")
 COLOR_OPTIONS = (By.XPATH, "//div[@data-test='@web/VariationComponent'][.//span[contains(text(), 'Color') or contains(text(), 'color')]]//img")
 SELECTED_COLOR = (By.XPATH, "//div[@data-test='@web/VariationComponent'][.//span[contains(text(), 'Color') or contains(text(), 'color')]]//div[contains(@class, 'styles_headerWrapper')]")
 
