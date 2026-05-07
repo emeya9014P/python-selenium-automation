@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
-from pages.base_page import Page
+from pages.base_page import BasePage
 from time import sleep
 
-class TargetHelpPage(Page):
+class TargetHelpPage(BasePage):
     HORIZONTAL_CARD = (By.CSS_SELECTOR, "div[class*='LinkItem_linkList'][data-test='LinkList']")
     NAV_CARD = (By.CSS_SELECTOR, "div[class*='NavCard_navCardWrapper'] a")
     SEARCH_FIELD = (By.ID, 'search')

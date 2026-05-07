@@ -1,11 +1,11 @@
 from pydoc import text
 
 from selenium.webdriver.common.by import By
-from pages.base_page import Page
+from pages.base_page import BasePage
 from time import sleep
 
 
-class CartPage(Page):
+class CartPage(BasePage):
     EMPTY_CART_MSG = (By.XPATH, "//h1[text()='Your cart is empty']")
 
     def verify_cart_empty(self):

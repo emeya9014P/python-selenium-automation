@@ -1,10 +1,10 @@
 from selenium.webdriver.common.by import By
 
-from pages.base_page import Page
+from pages.base_page import BasePage
 from selenium.webdriver.support import expected_conditions as EC
 
 
-class SearchResultsPage(Page):
+class SearchResultsPage(BasePage):
     ADD_TO_CART_BTN = (By.CSS_SELECTOR, "button[id='addToCartButtonOrTextIdFor12954582'][aria-label*='Add to cart for Tazo Passion Herbal Tea Bags']")
     CART_ITEM_TITLE = (By.CSS_SELECTOR, "[data-test='cartItem-title']")
     FIRST_PRODUCT = (By.CSS_SELECTOR, "a[data-test='@web/ProductCard/title'][aria-label*='Tazo Passion Herbal']")
@@ -24,10 +24,11 @@ class SearchResultsPage(Page):
 
     def search_for_product(self, product):
         search_input = self.find_element(*self.SEARCH_FIELD)
-
         search_input.send_keys(product)
 
-        self.find_element(*self.SEARCH_BTN).click()
+        # self.find_element(*self.SEARCH_BTN).click()
+        search_btn = self.find_element(*self.SEARCH_BTN)
+        self.driver.execute_script("arguments[0].click();", search_btn)
 
     def verify_product_search_result(self, product):
         actual_result = self.find_element(*self.SEARCH_RESULT_COUNT_TEXT).text

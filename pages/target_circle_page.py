@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
-from pages.base_page import Page
+from pages.base_page import BasePage
 from time import sleep
 
-class TargetCirclePage(Page):
+class TargetCirclePage(BasePage):
     STORY_CARDS_BLOCK = (By.CSS_SELECTOR, "div[data-test='@web/SlingshotComponents/Storyblocks'] a")
     TARGET_CIRCLE_URL = 'https://www.target.com/l/target-circle/-/N-pzno9'
 

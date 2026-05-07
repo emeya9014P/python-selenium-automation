@@ -2,7 +2,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-class Page:
+class BasePage:
+    HEALTH_CONSENT_BTN = (By.XPATH, "//button[contains(., 'Continue shopping')]")
+
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(self.driver, 10)
@@ -12,7 +14,7 @@ class Page:
 
     def get_current_url(self):
         return self.driver.current_url
-    
+
     def find_element(self, *locator):
         return self.driver.find_element(*locator)
 
@@ -96,3 +98,18 @@ class Page:
             f"Expected '{expected_partial_text}' not in '{actual_text}'"
         print(f"Test Passed: '{expected_partial_text}'")
 
+    def handle_health_consent(self):
+        try:
+            # 1. 팝업 버튼이 화면에 나타날 때까지 최대 10초만 더 기다려줍니다.
+            # EC.presence_of_element_located는 버튼이 '존재'만 해도 통과합니다.
+            btn = self.wait.until(EC.presence_of_element_located(self.HEALTH_CONSENT_BTN))
+
+            try:
+                btn.click()  # 일반 클릭 시도
+            except:
+                self.driver.execute_script("arguments[0].click();", btn)  # 실패 시 JS 클릭
+            print("BasePage: Heath data message closed by JS click.")
+
+        except Exception as e:
+            # 팝업이 안 뜨는 경우를 대비해 에러는 무시합니다.
+            print(f"BasePage: Heath data message closed and proceed the next step.")

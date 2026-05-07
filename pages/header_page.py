@@ -1,9 +1,9 @@
 from selenium.webdriver.common.by import By
 from time import sleep
-from pages.base_page import Page
+from pages.base_page import BasePage
 
 
-class Header(Page):
+class Header(BasePage):
     ACCOUNT_BTN = (By.CSS_SELECTOR, "#account-sign-in")
     CART_ICON = (By.CSS_SELECTOR, "[data-test='@web/CartLink']")
     HEADER_LINKS_CONTAINER = (By.CSS_SELECTOR, "[class*='HeaderLinksContainer']")
@@ -38,7 +38,6 @@ class Header(Page):
 
         assert expected_result in actual_result, f"Expected {expected_result}, but got {actual_result}"
         print("Test passed: '{Sign in or create account}' is appeared.")
-
 
     def verify_header_links_container_shown(self):
         element = self.wait_until_appear(*self.HEADER_LINKS_CONTAINER)

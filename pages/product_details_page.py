@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
-from pages.base_page import Page
+from pages.base_page import BasePage
 from time import sleep
 
-class ProductDetailsPage(Page):
+class ProductDetailsPage(BasePage):
     COLOR_OPTIONS = (By.XPATH, "//div[@data-test='@web/VariationComponent'][.//span[contains(text(), 'Color') or contains(text(), 'color')]]//img")
     PRODUCT_URL_A91269718 = 'https://www.target.com/p/wranglers-men-39-s-relaxed-fit-straight-jeans/-/A-91269718?preselect=90919011#lnk=sametab'
     PRODUCT_URL_A1000044024 = 'https://www.target.com/p/wrangler-workwear-men-s-long-sleeve-heavyweight-pocket-t-shirt-size-s-5xl/-/A-1000044024?preselect=94177950#lnk=sametab'
