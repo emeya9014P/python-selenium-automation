@@ -45,3 +45,9 @@ Feature: Test cases for Product Search on Target
     Given Open Target main page
     When Search for Airpods
     Then Verify that every product has a name and an image
+
+  Scenario: User can see favorites tooltip for search results
+    Given Open Target main page
+    When Search for tea
+    And Hover favorites icon
+    Then Favorites tooltip is shown

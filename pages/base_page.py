@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 
 class BasePage:
     HEALTH_CONSENT_BTN = (By.XPATH, "//button[contains(., 'Continue shopping')]")
@@ -11,6 +12,7 @@ class BasePage:
 
     def open_url(self, end_url=''):
         self.driver.get(f'https://www.target.com/{end_url}')
+        # self.open_url(self.LOGIN_URL)
 
     def get_current_url(self):
         return self.driver.current_url
@@ -26,6 +28,11 @@ class BasePage:
 
     def input_text(self, text, *locator):
         self.driver.find_element(*locator).send_keys(text)
+
+    def hover_element(self, *locator):
+        element = self.find_element(*locator)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(element).perform()
 
     def get_current_window(self):
         return self.driver.current_window_handle
@@ -84,6 +91,12 @@ class BasePage:
         self.wait.until(
             EC.url_to_be(expected_url),
             message=f"Expected '{expected_url}', but got '{self.driver.current_url}'"
+        )
+
+    def wait_until_visible(self, *locator):
+        self.wait.until(
+            EC.visibility_of_element_located(locator),
+            message=f"Element by {locator} not visible"
         )
 
     def verify_text(self, expected_text, *locator):

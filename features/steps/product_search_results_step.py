@@ -37,6 +37,16 @@ def click_view_cart_check_out_button(context):
     context.app.product_search_results_page.click_view_cart_check_out_button()
 
 
+@when ("Hover favorites icon")
+def hover_fav_icon(context):
+    context.app.product_search_results_page.hover_fav_icon()
+
+
+@then ("Favorites tooltip is shown")
+def verify_fav_tooltip_shown(context):
+    context.app.product_search_results_page.verify_fav_tooltip_shown()
+
+
 @then("Verify the {product} is in the cart")
 def verify_product_in_cart(context, product):
     context.app.product_search_results_page.verify_first_product_in_cart(product)

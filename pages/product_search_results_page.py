@@ -1,12 +1,14 @@
 from selenium.webdriver.common.by import By
-
 from pages.base_page import BasePage
 from selenium.webdriver.support import expected_conditions as EC
+# from selenium.webdriver.common.action_chains import ActionChains
 
 
 class SearchResultsPage(BasePage):
     ADD_TO_CART_BTN = (By.CSS_SELECTOR, "button[id='addToCartButtonOrTextIdFor12954582'][aria-label*='Add to cart for Tazo Passion Herbal Tea Bags']")
     CART_ITEM_TITLE = (By.CSS_SELECTOR, "[data-test='cartItem-title']")
+    FAV_ICON = (By.CSS_SELECTOR, "[data-test='FavoritesButton']")
+    FAV_TT = (By.XPATH, "//*[contains(text(), 'Click to sign in and save')]")
     FIRST_PRODUCT = (By.CSS_SELECTOR, "a[data-test='@web/ProductCard/title'][aria-label*='Tazo Passion Herbal']")
     PRODUCT_CARDS = (By.CSS_SELECTOR, "[data-test='@web/site-top-of-funnel/ProductCardWrapper']")
     SEARCH_BTN = (By.CSS_SELECTOR, "[data-test='@web/Search/SearchButton']")
@@ -68,3 +70,8 @@ class SearchResultsPage(BasePage):
             product_image = product.find_element(By.CSS_SELECTOR, "img[alt]")
             assert product_image, 'Product image not shown'
 
+    def hover_fav_icon(self):
+        self.hover_element(*self.FAV_ICON)
+
+    def verify_fav_tooltip_shown(self):
+        self.wait_until_visible(*self.FAV_TT)

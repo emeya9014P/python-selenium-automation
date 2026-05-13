@@ -1,5 +1,5 @@
-# Created by emeya at 4/26/2026
-Feature: Target Help page test cases
+
+Feature: Test cases for Target Help page
 
   Scenario Outline: Verify UI elements on Target Help page
     Given Open Target Help page
@@ -20,4 +20,19 @@ Feature: Target Help page test cases
     Given Open Target Help page
     Then Verify 8 horizontal cards are linked
 
+  Scenario: User can select Help topic Promotions & Coupons
+    Given Open Help page for Returns
+    When Select Help topic Promotions & Coupons
+    Then Verify help Current promotions page opened
+
+    # make topic options dynamic scenario
+  Scenario: User can select Help topic Target Circle
+    Given Open Help page for Returns
+    When Select Help topic Target Circle™
+    Then Verify help About Target Circle page opened
+
+  Scenario: User can select Help topic on Returns page
+    Given Open Help page for Returns
+    When Select Help topic Orders & Purchases
+    Then Verify help Print a receipt page opened
 

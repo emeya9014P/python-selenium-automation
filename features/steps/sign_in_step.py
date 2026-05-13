@@ -27,6 +27,36 @@ def close_current_page(context):
     context.app.base_page.close_window()
 
 
-@then ("Switch to original page")
+@then("Switch to original page")
 def switch_to_original_window(context):
     context.app.base_page.switch_to_window_by_id(context.original_window)
+
+
+@when("Enters correct email, 'test_user@example.com'")
+def enter_correct_email(context):
+    context.app.sign_in_page.enter_correct_email(email='dawaja1146@inreur.com')
+
+
+@then("Click on Continue button")
+def click_continue_btn(context):
+    context.app.sign_in_page.click_continue_btn()
+
+
+@when("Click Enter your password button")
+def click_enter_your_password_btn(context):
+    context.app.sign_in_page.enter_your_password_btn()
+
+
+@when("Enters incorrect password, '12oqqoQ!'")
+def enter_incorrect_password(context):
+    context.app.sign_in_page.enter_incorrect_password(password='12oqqoQ!')
+
+
+@then("Click Sign in with password")
+def click_sign_in_with_password_btn(context):
+    context.app.sign_in_page.click_sign_in_with_password_btn()
+
+
+@then("Verifies that an error message is shown")
+def verify_error_message(context):
+    context.app.sign_in_page.verify_error_message()
